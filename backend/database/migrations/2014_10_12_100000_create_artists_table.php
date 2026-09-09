@@ -8,5 +8,18 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
 
-   
+    public function up(): void
+    {
+        Schema::create('artists', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('genre');
+            $table->text('bio')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('cover_image')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    
 };
