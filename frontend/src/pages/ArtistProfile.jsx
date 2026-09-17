@@ -61,10 +61,8 @@ const ArtistProfile = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Chargement des données selon l'ID de l'URL ou valeur par défaut (Luna Echo)
   const artist = ARTISTS_DATA[id] || ARTISTS_DATA[1];
 
-  // États interactifs
   const [isFollowing, setIsFollowing] = useState(false);
   const [activeTab, setActiveTab] = useState('Publications');
   const [likedPosts, setLikedPosts] = useState({});
