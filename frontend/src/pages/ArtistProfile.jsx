@@ -5,7 +5,6 @@ import {
   MessageSquare, Bookmark, Play, Check, ArrowLeft 
 } from 'lucide-react';
 
-// Base de données fictive des artistes
 const ARTISTS_DATA = {
   1: {
     name: 'Luna Echo',
