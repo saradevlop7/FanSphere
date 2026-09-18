@@ -12,13 +12,4 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
 
-      <Route path="/login" element={<Login />} />
-      <Route path="/Register" element={<Register />} />
-      <Route path="/admin" element={<Admin />} />
-      <Route path="/dashboard" element={<FanDashboard />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
-      <Route path="/artists" element={<DiscoverArtists />} />
-      <Route path="/artists/:id" element={<ArtistProfile />} />
-    </Routes>
-  );
 }
