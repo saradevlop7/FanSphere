@@ -1,73 +1,12 @@
-version: '3.8'
-
 services:
-  # Laravel Backend Service
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: fansphere_backend
-    restart: unless-stopped
-    tty: true
-    working_dir: /var/www
-    volumes:
-      - ./backend:/var/www
-    networks:
-      - fansphere_network
-    depends_on:
-      - db
-
-  # Nginx Web Server for Laravel
-  webserver:
-    image: nginx:alpine
-    container_name: fansphere_nginx
-    restart: unless-stopped
-    ports:
-      - "8000:80"
-    volumes:
-      - ./backend:/var/www
-      - ./nginx/conf.d:/etc/nginx/conf.d/
-    networks:
-      - fansphere_network
-    depends_on:
-      - backend
-
-  # React Frontend Service
   frontend:
     build:
-      context: ./frontend
+      context: .
       dockerfile: Dockerfile
     container_name: fansphere_frontend
     restart: unless-stopped
     ports:
       - "5173:5173"
     volumes:
-      - ./frontend:/app
+      - .:/app
       - /app/node_modules
-    networks:
-      - fansphere_network
-
-  # MySQL Database Service
-  db:
-    image: mysql:8.0
-    container_name: fansphere_db
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: ${DB_DATABASE:-fansphere}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
-      MYSQL_USER: ${DB_USERNAME:-fansphere_user}
-    ports:
-      - "3306:3306"
-    volumes:
-      - dbdata:/var/lib/mysql
-    networks:
-      - fansphere_network
-
-networks:
-  fansphere_network:
-    driver: bridge
-
-volumes:
-  dbdata:
-    driver: local
