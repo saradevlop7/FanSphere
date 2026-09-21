@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Icônes simples pour le footer
+/
 const FacebookIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
 );
@@ -15,14 +15,12 @@ const InstagramIcon = () => (
 const Home = () => {
   const navigate = useNavigate();
 
-  // State pour la recherche
   const [searchQuery, setSearchQuery] = useState('');
 
-  // State pour les artistes (gestion du bouton Follow)
+ 
   const [following, setFollowing] = useState({});
   const [isLikedAurora, setIsLikedAurora] = useState(false);
 
-  // Toggle Follow
   const toggleFollow = (artistName) => {
     setFollowing(prev => ({
       ...prev,
@@ -30,7 +28,6 @@ const Home = () => {
     }));
   };
 
-  // Données des artistes
   const initialArtists = [
     { id: 1, name: "The Nomads", genre: "Indie Rock", img: "https://images.unsplash.com/photo-1520193186411-e4070eb3e9d8?q=80&w=100&auto=format&fit=crop" },
     { id: 2, name: "J-Kruz", genre: "Hip Hop", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop" },
@@ -38,19 +35,19 @@ const Home = () => {
     { id: 4, name: "DJ Nova", genre: "Techno", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop" }
   ];
 
-  // Données des événements
+ 
   const events = [
     { id: 1, date: { day: "24", month: "OCT" }, title: "Synthwave Festival 2024: The Global Tour", location: "Neon Valley, Austin, CA", price: "$149.00", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop", tag: "Selling Fast" },
     { id: 2, date: { day: "05", month: "NOV" }, title: "Elias Thome: Acoustic Sessions & Q&A", location: "Virtual Event", price: "$25.00", img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=600&auto=format&fit=crop", tag: "100+ Tickets Left" },
     { id: 3, date: { day: "12", month: "NOV" }, title: "DJ Nova Presents: Deep House All Nighter", location: "The Warehouse, London", price: "$49.00", img: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?q=80&w=600&auto=format&fit=crop", tag: "Virtual Access" }
   ];
 
-  // Handler de recherche
+ 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
 
-  // Filtrage simple pour la démo
+ 
   const filteredEvents = events.filter(ev => 
     ev.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
     ev.location.toLowerCase().includes(searchQuery.toLowerCase())
