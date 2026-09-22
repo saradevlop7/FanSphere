@@ -29,9 +29,37 @@ const FanDashboard = () => {
       .catch(err => console.error("Erreur lors du chargement des données :", err));
   }, []);
 
-  
+  const handleLike = () => {
+    if (liked) {
+      setLiked(false);
+      setLikeCount(prev => prev - 1);
+    } else {
+      setLiked(true);
+      setLikeCount(prev => prev + 1);
+    }
+  };
 
- 
+  const handleAddComment = (e) => {
+    e.preventDefault();
+    if (!commentInput.trim()) return;
+
+    setCommentsList([...commentsList, commentInput]);
+    setCommentsCount(prev => prev + 1);
+    setCommentInput('');
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Aperçu exclusif du titre',
+        url: window.location.href,
+      }).catch((err) => console.log('Erreur de partage :', err));
+    } else {
+      alert('Lien de la publication copié dans le presse-papiers !');
+    }
+  };
+
+  
   const handleLogout = () => {
     alert('Déconnexion réussie');
   };
