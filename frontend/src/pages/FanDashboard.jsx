@@ -21,15 +21,6 @@ const FanDashboard = () => {
   const [user, setUser] = useState({ name: 'Alex', role: 'Compte Fan' });
   const [activeTab, setActiveTab] = useState('dashboard');
   
-  // États pour les interactions
-  const [liked, setLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(1200);
-  const [commentsCount, setCommentsCount] = useState(342);
-  const [showComments, setShowComments] = useState(false);
-  const [commentInput, setCommentInput] = useState('');
-  const [commentsList, setCommentsList] = useState([]);
-
-  // Récupération des données depuis l'API Laravel
   useEffect(() => {
     axios.get('http://localhost:8000/api/fan/dashboard')
       .then(res => {
@@ -38,40 +29,9 @@ const FanDashboard = () => {
       .catch(err => console.error("Erreur lors du chargement des données :", err));
   }, []);
 
-  // 1. Gestion du bouton J'aime
-  const handleLike = () => {
-    if (liked) {
-      setLiked(false);
-      setLikeCount(prev => prev - 1);
-    } else {
-      setLiked(true);
-      setLikeCount(prev => prev + 1);
-    }
-  };
+  
 
-  // 2. Gestion de l'ajout d'un commentaire
-  const handleAddComment = (e) => {
-    e.preventDefault();
-    if (!commentInput.trim()) return;
-
-    setCommentsList([...commentsList, commentInput]);
-    setCommentsCount(prev => prev + 1);
-    setCommentInput('');
-  };
-
-  // 3. Gestion du partage
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Aperçu exclusif du titre',
-        url: window.location.href,
-      }).catch((err) => console.log('Erreur de partage :', err));
-    } else {
-      alert('Lien de la publication copié dans le presse-papiers !');
-    }
-  };
-
-  // 4. Gestion de la déconnexion
+ 
   const handleLogout = () => {
     alert('Déconnexion réussie');
   };
