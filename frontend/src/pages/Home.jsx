@@ -40,6 +40,8 @@ const Home = () => {
     { id: 1, date: { day: "24", month: "OCT" }, title: "Synthwave Festival 2024: The Global Tour", location: "Neon Valley, Austin, CA", price: "$149.00", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop", tag: "Selling Fast" },
     { id: 2, date: { day: "05", month: "NOV" }, title: "Elias Thome: Acoustic Sessions & Q&A", location: "Virtual Event", price: "$25.00", img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=600&auto=format&fit=crop", tag: "100+ Tickets Left" },
     { id: 3, date: { day: "12", month: "NOV" }, title: "DJ Nova Presents: Deep House All Nighter", location: "The Warehouse, London", price: "$49.00", img: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?q=80&w=600&auto=format&fit=crop", tag: "Virtual Access" }
+    { id: 4, date: { day: "12", month: "NOV" }, title: "DJ Nova Presents: Deep House All Nighter", location: "The Warehouse, London", price: "$49.00", img: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?q=80&w=600&auto=format&fit=crop", tag: "Virtual Access" }
+
   ];
 
  
