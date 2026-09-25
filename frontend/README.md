@@ -1,65 +1,44 @@
-# 🎵 FanSphere - Fan Experience Platform
+# 2. `README.md` — Frontend (React + Vite)
 
-FanSphere est une application web full-stack centralisant les actualités, contenus exclusifs et événements de vos artistes préférés au sein d'une interface dynamique, moderne et sécurisée.
+```markdown
+# FanSphere — Frontend Application (React + Vite)
+
+Le client Frontend de **FanSphere** propose une interface utilisateur dynamique, moderne et réactive permettant aux utilisateurs de découvrir des artistes, de s'abonner à leurs profils et de suivre leurs dernières nouveautés.
 
 ---
 
 ## 🛠️ Stack Technique
 
-### **Backend**
-* **Framework :** Laravel 10 (PHP 8.2+)[cite: 1]
-* **API & Authentification :** Laravel Sanctum (Tokens Bearer)[cite: 1]
-* **Base de données :** MySQL 8.0 (ORM Eloquent)[cite: 1]
-* **Architecture :** RESTful API, Form Requests, Policies & Middlewares[cite: 1]
-
-### **Frontend**
-* **Framework :** React 18+ (Vite)[cite: 1]
-* **Styling & UI :** TailwindCSS & Lucide Icons[cite: 1]
-* **Routing & HTTP :** React Router DOM v6 & Axios[cite: 1]
+* **Bibliothèque UI :** React.js (Hooks, Context/State)
+* **Outil de Build :** Vite
+* **Client HTTP :** Axios
+* **Routage :** React Router DOM
+* **Styles :** CSS3 Moderne (Flexbox, Grid, Animations Custom)
+* **Conteneurisation :** Docker (Node 18 Alpine)
 
 ---
 
-## 🚀 Installation & Configuration Locale
+## 🚀 Fonctionnalités Principales
 
-### Prerequisites
-* **PHP** >= 8.2
-* **Composer**
-* **Node.js** >= 18.x & **npm**
-* **MySQL** >= 8.0
+* 🎨 **Interface Dynamique :** Affichage en temps réel des cartes d'artistes récupérées depuis l'API Laravel.
+* 🔐 **Espace Authentification :** Formulaires de connexion et d'inscription liés à l'API avec stockage sécurisé du jeton dans le `localStorage`.
+* ❤️ **Système Interactif Follow / Unfollow :** Boutons d'action réactifs mettant à jour instantanément le compteur d'abonnements dans la barre de navigation.
+* 📱 **Design Responsive :** Adaptation fluide sur Desktop, Tablette et Mobile.
+* ⏱️ **Gestion UX :** États de chargement (*loading skeletons*) et gestion appropriée des erreurs HTTP.
 
 ---
 
-### 1. Cloner le Projet
-```bash
-git clone [https://github.com/votre-compte/fansphere.git](https://github.com/votre-compte/fansphere.git)
-cd fansphere
-# Aller dans le dossier backend (ou à la racine si projet unique)
-cd backend
+## 📁 Structure du Projet
 
-# Installer les dépendances PHP
-composer install
-
-# Copier le fichier d'environnement
-cp .env.example .env
-
-# Générer la clé d'application
-php artisan key:generate
-
-# Configurer la base de données dans .env :
-# DB_DATABASE=fansphere
-# DB_USERNAME=root
-# DB_PASSWORD=
-
-# Exécuter les migrations et seeders
-php artisan migrate --seed
-
-# Lancer le serveur Laravel
-php artisan serve
-# Aller dans le dossier frontend
-cd ../frontend
-
-# Installer les dépendances JS
-npm install
-
-# Lancer le serveur de développement Vite
-npm run dev
+```text
+frontend/
+├── src/
+│   ├── assets/          # Images, logos et ressources statiques
+│   ├── components/      # Composants réutilisables (Navbar, Cards, Buttons)
+│   ├── pages/           # Pages de l'application (Login, Register, DiscoverArtists)
+│   ├── services/        # Instance Axios et appels API
+│   ├── App.jsx          # Configuration des routes
+│   └── main.jsx         # Point d'entrée React
+├── Dockerfile           # Configuration Docker pour l'environnement Frontend
+├── docker-compose.yml   # Fichier de déploiement Docker
+└── package.json         # Dépendances du projet
