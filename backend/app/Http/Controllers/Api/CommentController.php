@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    /**
-     * Ajouter un commentaire sous une publication.
-     */
+
     public function store(Request $request, $publicationId)
     {
         $validated = $request->validate([
@@ -29,9 +27,7 @@ class CommentController extends Controller
         ], 201);
     }
 
-    /**
-     * Supprimer un commentaire (seul l'auteur ou l'admin).
-     */
+    
     public function destroy(Request $request, $id)
     {
         $comment = Comment::findOrFail($id);

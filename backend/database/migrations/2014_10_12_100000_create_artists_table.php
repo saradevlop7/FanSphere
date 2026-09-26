@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -11,8 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('publications', function (Blueprint $table) {
+        Schema::create('artists', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('genre');
+            $table->text('bio')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('cover_image')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('publications');
+        Schema::dropIfExists('artists');
     }
 };

@@ -15,7 +15,7 @@ class AuthController extends Controller
         $fields = $request->validate([
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6',
+            'password' => 'required|min:6',
         ]);
 
         $user = User::create([
@@ -37,7 +37,7 @@ class AuthController extends Controller
     {
         $fields = $request->validate([
             'email'    => 'required|string|email',
-            'password' => 'required|string',
+            'password' => 'required',
         ]);
 
         $user = User::where('email', $fields['email'])->first();
